@@ -1,0 +1,23 @@
+function rot13(str) {
+  let newArr = [];
+let arr = str.split("");
+let ar2 ="ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRST";
+let a2 =ar2.split("");
+var b = 0;
+var c = 0;
+for (let i = 0; i<arr.length; i++) {
+  for (let j = 0; j< 26; j++) {
+    if (arr[i] === a2[j]) {
+      b = a2.indexOf(a2[j]);
+      c= b+13;
+      newArr.push(a2[c]);
+    } 
+  }
+  //Deal with non-alphabetic character
+ if(!arr[i].match(/[A-Z]/)) newArr.push(arr[i]);
+}
+let newAr = newArr.join("");
+  return newAr;
+}
+
+rot13("SERR PBQR PNZC");
